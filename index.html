@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CabBooking — Book Your Ride</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+<nav class="nav">
+  <div class="logo">🚖 CabBooking</div>
+  <ul class="nav-links">
+  <li><a onclick="showSection('home')">Home</a></li>
+  <li><a onclick="showSection('booking')">Book</a></li>
+  <li><a onclick="showSection('pricing')">Pricing</a></li>
+  <li><a onclick="showSection('drivers')">Drivers</a></li>
+  <li><a onclick="showSection('faq')">FAQ</a></li>
+  <li><a onclick="showSection('contact')">Contact</a></li>
+</ul>
+
+  <!-- Removed external page link -->
+  <button class="btn small" onclick="scrollToBooking()">My Booking</button>
+</nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="hero-left">
+      <h1>Book a Safe & Quick Ride</h1>
+      <p>Affordable rides, trusted drivers, and instant booking — anywhere, anytime.</p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn">Book Now</a>
+        <a href="#pricing" class="btn outline">View Pricing</a>
+      </div>
+      <div class="promo">
+        <label>Have a promo code?</label>
+        <input type="text" id="promoInput" placeholder="Enter promo code" />
+        <button class="btn tiny" onclick="applyPromo()">Apply</button>
+      </div>
+      <p class="tiny muted" id="promoMessage" style="margin-top:8px"></p>
+    </div>
+    <div class="hero-right">
+      <div class="card booking-card" id="booking">
+        <h3>Book a Cab</h3>
+        <form id="bookingForm" class="booking-form">
+          <input type="text" id="pickup" placeholder="Pickup location" required />
+          <input type="text" id="drop" placeholder="Drop location" required />
+          <div class="row">
+            <input type="date" id="date" required />
+            <input type="time" id="time" required />
+          </div>
+          <select id="cab" required>
+            <option value="">Select Cab Type</option>
+            <option value="Mini">Mini - ₹35/km</option>
+            <option value="Sedan">Sedan - ₹50/km</option>
+            <option value="SUV">SUV - ₹80/km</option>
+            <option value="Luxury">Luxury - ₹120/km</option>
+          </select>
+          <button type="submit" class="btn full">🚖 Book Now</button>
+        </form>
+        <p class="tiny muted" style="margin-top:12px">No payment required. Demo booking with sample details.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <h2>Why Ride With Us</h2>
+      <div class="grid-3">
+        <div class="feature">
+          <h3>⚡ Fast Pickup</h3>
+          <p>Average pickup time under 10 minutes in city areas. Get on your way quickly.</p>
+        </div>
+        <div class="feature">
+          <h3>✓ Trusted Drivers</h3>
+          <p>All drivers verified with ratings and background checks for your safety.</p>
+        </div>
+        <div class="feature">
+          <h3>🔒 Secure Payments</h3>
+          <p>Cash & card options with receipts for every ride. Your money is safe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2>Pricing Plans</h2>
+      <div class="grid-3">
+        <div class="price-card">
+          <h3>Mini</h3>
+          <p class="price">₹35/km</p>
+          <ul>
+            <li>Budget friendly</li>
+            <li>Up to 3 passengers</li>
+            <li>Compact cars</li>
+            <li>City rides</li>
+          </ul>
+          <a href="#booking" class="btn small">Choose Mini</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Sedan</h3>
+          <p class="price">₹50/km</p>
+          <ul>
+            <li>Comfortable & roomy</li>
+            <li>Up to 4 passengers</li>
+            <li>Air conditioned</li>
+            <li>Perfect for families</li>
+          </ul>
+          <a href="#booking" class="btn small">Choose Sedan</a>
+        </div>
+        <div class="price-card">
+          <h3>SUV</h3>
+          <p class="price">₹80/km</p>
+          <ul>
+            <li>For groups & luggage</li>
+            <li>Up to 6 passengers</li>
+            <li>Extra space</li>
+            <li>Long distance</li>
+          </ul>
+          <a href="#booking" class="btn small">Choose SUV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRIVERS -->
+  <section id="drivers" class="drivers">
+    <div class="container">
+      <h2>Top Drivers Near You</h2>
+      <div class="grid-4">
+        <div class="driver-card">
+          <img src="https://ui-avatars.com/api/?name=Ravi+Kumar&background=ff9800&color=fff&size=80" alt="driver" />
+          <h4>Ravi Kumar</h4>
+          <p class="muted">Rating: ⭐ 4.9 (250 rides)</p>
+        </div>
+        <div class="driver-card">
+          <img src="https://ui-avatars.com/api/?name=Sunita+Devi&background=2193b0&color=fff&size=80" alt="driver" />
+          <h4>Sunita Devi</h4>
+          <p class="muted">Rating: ⭐ 4.8 (180 rides)</p>
+        </div>
+        <div class="driver-card">
+          <img src="https://ui-avatars.com/api/?name=Amit+Sharma&background=4caf50&color=fff&size=80" alt="driver" />
+          <h4>Amit Sharma</h4>
+          <p class="muted">Rating: ⭐ 4.7 (320 rides)</p>
+        </div>
+        <div class="driver-card">
+          <img src="https://ui-avatars.com/api/?name=Priya+Singh&background=e91e63&color=fff&size=80" alt="driver" />
+          <h4>Priya Singh</h4>
+          <p class="muted">Rating: ⭐ 4.9 (290 rides)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Riders Say</h2>
+      <div class="testi-wrap">
+        <blockquote class="testi">"Quick pickup and polite driver. The car was clean and comfortable. Loved the ride!" - Rahul M.</blockquote>
+        <blockquote class="testi">"Great app for everyday rides. Fair pricing and reliable service. Highly recommended!" - Anjali K.</blockquote>
+        <blockquote class="testi">"Driver was on time and the car was spotless. Professional service at great prices." - Vikram S.</blockquote>
+        <blockquote class="testi">"Best cab service in town. Safe rides and friendly drivers. Will use again!" - Neha P.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="accordion">
+        <details>
+          <summary>How do I cancel a booking?</summary>
+          <p>You can cancel from My Booking page within 10 minutes without charges (demo environment). In the full version, cancellation policies vary by timing.</p>
+        </details>
+        <details>
+          <summary>What payment methods are supported?</summary>
+          <p>Cash and card payments are supported in the full version. This is a demo environment showing sample bookings only.</p>
+        </details>
+        <details>
+          <summary>Can I schedule rides in advance?</summary>
+          <p>Yes — choose a future date and time in the booking form. You can book up to 7 days in advance.</p>
+        </details>
+        <details>
+          <summary>Are the drivers verified?</summary>
+          <p>Absolutely! All our drivers undergo background checks, license verification, and training before joining our platform.</p>
+        </details>
+        <details>
+          <summary>What if I left something in the cab?</summary>
+          <p>Contact our support immediately at +91 98765 43210. We'll connect you with your driver to retrieve your items.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <textarea placeholder="How can we help?" rows="5" required></textarea>
+          <button class="btn">Send Message</button>
+        </form>
+        <div class="card contact-info">
+          <h3>Customer Support</h3>
+          <p style="margin:12px 0"><strong>📞 Phone:</strong> +91 98765 43210</p>
+          <p style="margin:12px 0"><strong>📧 Email:</strong> support@cabbooking.example</p>
+          <p style="margin:12px 0"><strong>🕐 Hours:</strong> 24/7 Support</p>
+          <p class="muted tiny" style="margin-top:20px">We reply within 24 hours (demo environment)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>🚖 CabBooking</h4>
+        <p class="muted">Reliable rides across the city. Your safety is our priority.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <p class="muted">Facebook • Twitter • Instagram</p>
+      </div>
+    </div>
+    <div class="copy">© 2025 CabBooking — Demo Project. All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
